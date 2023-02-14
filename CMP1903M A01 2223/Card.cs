@@ -15,4 +15,12 @@ namespace CMP1903M_A01_2223
         public int Value { get; set; }
         public int Suit { get; set; }
     }
+    public enum Suit
+    {
+        Hearts = 1,
+        Diamonds = 2,
+        Clubs = 3,
+        Spades = 4
+    }
+
 }
