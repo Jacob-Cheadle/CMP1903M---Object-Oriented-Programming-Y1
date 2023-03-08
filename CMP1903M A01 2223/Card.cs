@@ -8,36 +8,17 @@ namespace CMP1903M_A01_2223
 {
     class Card
     {
-        //Base for the Card class.
-        //Value: numbers 1 - 13
-        //Suit: numbers 1 - 4
-        //The 'set' methods for these properties could have some validation
-        public int Value { get; set; }
-        public int Suit { get; set; }
+        private int Value;
+        public int card_val{
+            get { return Value; }
+            set { if (card_val > 0 && card_val < 13) { Value = card_val; }
+                  else { Console.WriteLine("Invalid Value - Must be in the range 1 - 13"); }}
+        }
+        private int Suit;
+        public int card_suit{
+            get { return Suit; }
+            set {if (card_suit > 0 && card_suit <= 4) { Suit = card_suit; }
+                else { Console.WriteLine("Invalid Value - Must be in the range 1 - 4"); }}
+        }
     }
-    public enum Suit
-    {
-        Hearts = 1,
-        Diamonds = 2,
-        Clubs = 3,
-        Spades = 4
-    }
-
-    public enum Value
-    {
-        Ace = 1,
-        Two = 2,
-        Three = 3,
-        Four = 4,
-        Five = 5,
-        Six = 6,
-        Seven = 7,
-        Eight = 8,
-        Nine = 9,
-        Ten = 10,
-        Jack = 11,
-        Queen = 12,
-        King = 13
-    }
-
 }
