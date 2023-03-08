@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,21 +11,19 @@ namespace CMP1903M_A01_2223
 {
     class Pack
     {
-        readonly List<Card> cards = new List<Card>();
+        List<Card> cards = new List<Card>();
 
         public Pack()
         {for (int Value = 1; Value <= 13; Value++)
             {for (int Suit = 1; Suit <= 4; Suit++)
-                {Card card = new Card();
+                {
+                    Card card = new Card();
                     card.card_val = Value;
                     card.card_suit = Suit;
-                    cards.Add(card);}
+                    cards.Add(card);
+                }
             }
         }
-
-           
-
-
 
         public static bool shuffleCardPack(int typeOfShuffle)
         {if (typeOfShuffle == 1)
@@ -48,14 +47,17 @@ namespace CMP1903M_A01_2223
         {
             List<Card> cards = new List<Card>();
             var packSize = cards.Count;
-            { for (int i = 0; i < amount; i++)
-                { cards.Add(cards[packSize - i]);
+            {
+                for (int i = 0; i < amount; i++)
+                {
+                    cards.Add(cards[packSize - i]);
                     cards.RemoveAt(packSize - i);
                 }
-            return cards;
+                return cards;
+            } 
         }
 
-            public bool riffleShuffle()
+        public bool riffleShuffle()
         {
             var packSize = cards.Count - 1;
             if(packSize % 2 != 0 && packSize >= 2)
