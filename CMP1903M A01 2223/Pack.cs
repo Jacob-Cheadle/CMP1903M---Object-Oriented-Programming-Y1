@@ -19,8 +19,6 @@ namespace CMP1903M_A01_2223
                     card.Value = Value; //sets the value to the card
                     card.Suit = Suit; //sets the suit to the card
                     cards.Add(card); //adds the card to the deck
-                    cardCount = cardCount + 1;
-                    Console.WriteLine(cardCount);
                 }
             }
         }
