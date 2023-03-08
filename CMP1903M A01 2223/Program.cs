@@ -13,7 +13,7 @@ namespace CMP1903M_A01_2223
 
         static void Main(string[] args)
         {
-
+            Testing testing = new Testing();
         }
     }
 }

@@ -36,22 +36,22 @@ namespace CMP1903M_A01_2223
 
         public static Card deal()
         {
-            var packSize = cards.Count - 1;
-            Console.WriteLine(cards[packSize]);
-            Card deal_card = cards[packSize];
-            cards.RemoveAt(packSize);
+            var packSize = Program.PACK.cards.Count - 1;
+            Console.WriteLine(Program.PACK.cards[packSize]);
+            Card deal_card = Program.PACK.cards[packSize];
+            Program.PACK.cards.RemoveAt(packSize);
             return deal_card;
         }
 
         public static List<Card> dealCard(int amount)
         {
             List<Card> tempCards = new List<Card>();
-            var packSize = cards.Count;
+            var packSize = Program.PACK.cards.Count;
             {
                 for (int i = 0; i < amount; i++)
                 {
-                    tempCards.Add(cards[packSize - i]);
-                    cards.RemoveAt(packSize - i);
+                    tempCards.Add(Program.PACK.cards[packSize - i]);
+                    Program.PACK.cards.RemoveAt(packSize - i);
                 }
                 return tempCards;
             } 
