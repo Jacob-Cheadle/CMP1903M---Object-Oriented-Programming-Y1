@@ -45,15 +45,15 @@ namespace CMP1903M_A01_2223
 
         public static List<Card> dealCard(int amount)
         {
-            List<Card> cards = new List<Card>();
+            List<Card> tempCards = new List<Card>();
             var packSize = cards.Count;
             {
                 for (int i = 0; i < amount; i++)
                 {
-                    cards.Add(cards[packSize - i]);
+                    tempCards.Add(cards[packSize - i]);
                     cards.RemoveAt(packSize - i);
                 }
-                return cards;
+                return tempCards;
             } 
         }
 
