@@ -28,11 +28,11 @@ namespace CMP1903M_A01_2223
 
         public static bool shuffleCardPack(int typeOfShuffle)
         {if (typeOfShuffle == 1)
-            {return Program.pack1.fisherShatesShuffle();} 
+            {return Program.PACK.fisherShatesShuffle();} 
             else if (typeOfShuffle == 2)
-            {return Program.pack2.riffleShuffle();} 
+            {return Program.PACK.riffleShuffle();} 
             else
-            {return Program.pack3.noShuffle(); }
+            {return Program.PACK.noShuffle(); }
         }
 
         public static Card deal()
