@@ -7,11 +7,11 @@ namespace CMP1903M_A01_2223
     {
         public Testing()
         {
-            int amount;
+            int amount; //declares 
 
             var shuffle1 = Pack.shuffleCardPack(1);
             var shuffle2 = Pack.shuffleCardPack(2);
-            var shuffle3 = Pack.shuffleCardPack(3);
+            var shuffle3 = Pack.shuffleCardPack(3); //assigns all the shuffle outputs to variables to reduce logic
 
             if (shuffle1)
             {
@@ -26,13 +26,78 @@ namespace CMP1903M_A01_2223
             if (!shuffle3)
             {
                 Console.WriteLine("No-Shuffle Shuffle Complete");
-            }
+            }// confirms if all the shuffles have successfully ran
 
             Console.WriteLine();
-            Card card_dealt = Pack.deal();
+            Card card_dealt = Pack.deal(); //takes a dealt card
             string strValue = card_dealt.Value.ToString();
             string strSuit = card_dealt.Suit.ToString();
-            Console.WriteLine($"Value: {strValue}, Suit: {strSuit}");
+
+            switch (strValue) //reassigns the number values to their corresponding card types
+            {
+                case "1":
+                    strValue = "Ace";
+                    break;
+                case "2":
+                    strValue = "Two";
+                    break;
+                case "3":
+                    strValue = "Three";
+                    break;
+                case "4":
+                    strValue = "Four";
+                    break;
+                case "5":
+                    strValue = "Five";
+                    break;
+                case "6":
+                    strValue = "Six";
+                    break;
+                case "7":
+                    strValue = "Seven";
+                    break;
+                case "8":
+                    strValue = "Eight";
+                    break;
+                case "9":
+                    strValue = "Nine";
+                    break;
+                case "10":
+                    strValue = "Ten";
+                    break;
+                case "11":
+                    strValue = "Jack";
+                    break;
+                case "12":
+                    strValue = "Queen";
+                    break;
+                case "13":
+                    strValue = "King";
+                    break;
+                default:
+                    strValue = strValue;
+                    break;
+            }
+
+            switch (strSuit) //reassigns the number values to their corresponding suits
+            {
+                case "1":
+                    strSuit = "Spades";
+                    break;
+                case "2":
+                    strSuit = "Clubs";
+                    break;
+                case "3":
+                    strSuit = "Diamonds";
+                    break;
+                case "4":
+                    strSuit = "Hearts";
+                    break;
+                default:
+                    strSuit = strSuit;
+                    break;
+            }
+            Console.WriteLine($"{strValue} of {strSuit}"); //outputs the cards in a good understandable format
             Console.WriteLine();
 
             while (true)
@@ -40,16 +105,83 @@ namespace CMP1903M_A01_2223
                 try
                 {
                     Console.WriteLine("How Many Cards Would You Like To Deal ");
-                    amount = int.Parse(Console.ReadLine());
-                    if (amount > 0 && amount <= Program.PACK.cards.Count) { break; }
+                    amount = int.Parse(Console.ReadLine()); //ensures the value given is a number that can be taken
+                    if (amount > 0 && amount <= Program.PACK.cards.Count) { break; } //checks the input is a valid number
                     else { Console.WriteLine("Invalid Number"); }
                 }
                 catch { Console.WriteLine("Invalid Number"); }
             }
             List<Card> cards = Pack.dealCard(amount);
-            for (int i = 0; i < amount; i++)
+            for (int i = 0; i < amount; i++) //loops through the total amount of chosen cards
             {
-                Console.WriteLine($"Value: {cards[i].Value}, Suit: {cards[i].Suit}");
+                strValue = cards[i].Value.ToString();
+                strSuit = cards[i].Suit.ToString(); //reduces logic by assigning the values and suits from the card class to variables
+
+                switch (strValue) //reassigns the number values to their corresponding card types
+                {
+                    case "1":
+                        strValue = "Ace";
+                        break;
+                    case "2":
+                        strValue = "Two";
+                        break;
+                    case "3":
+                        strValue = "Three";
+                        break;
+                    case "4":
+                        strValue = "Four";
+                        break;
+                    case "5":
+                        strValue = "Five";
+                        break;
+                    case "6":
+                        strValue = "Six";
+                        break;
+                    case "7":
+                        strValue = "Seven";
+                        break;
+                    case "8":
+                        strValue = "Eight";
+                        break;
+                    case "9":
+                        strValue = "Nine";
+                        break;
+                    case "10":
+                        strValue = "Ten";
+                        break;
+                    case "11":
+                        strValue = "Jack";
+                        break;
+                    case "12":
+                        strValue = "Queen";
+                        break;
+                    case "13":
+                        strValue = "King";
+                        break;
+                    default:
+                        strValue = strValue;
+                        break;
+                }
+
+                switch (strSuit) //reassigns the number values to their corresponding suits
+                {
+                    case "1":
+                        strSuit = "Spades";
+                        break;
+                    case "2":
+                        strSuit = "Clubs";
+                        break;
+                    case "3":
+                        strSuit = "Diamonds";
+                        break;
+                    case "4":
+                        strSuit = "Hearts";
+                        break;
+                    default:
+                        strSuit = strSuit;
+                        break;
+                }
+                Console.WriteLine($"{strValue} of {strSuit}"); //prints all of the cards in a better format
             }
         }
     }
