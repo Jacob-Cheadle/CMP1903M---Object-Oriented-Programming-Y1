@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Schema;
 
 namespace CMP1903M_A01_2223
 {
@@ -14,8 +8,10 @@ namespace CMP1903M_A01_2223
         List<Card> cards = new List<Card>();
 
         public Pack()
-        {for (int Value = 1; Value <= 13; Value++)
-            {for (int Suit = 1; Suit <= 4; Suit++)
+        {
+            for (int Value = 1; Value <= 13; Value++)
+            {
+                for (int Suit = 1; Suit <= 4; Suit++)
                 {
                     Card card = new Card();
                     card.card_val = Value;
@@ -26,12 +22,13 @@ namespace CMP1903M_A01_2223
         }
 
         public static bool shuffleCardPack(int typeOfShuffle)
-        {if (typeOfShuffle == 1)
-            {return Program.PACK.fisherShatesShuffle();} 
+        {
+            if (typeOfShuffle == 1)
+            { return Program.PACK.fisherShatesShuffle(); }
             else if (typeOfShuffle == 2)
-            {return Program.PACK.riffleShuffle();} 
+            { return Program.PACK.riffleShuffle(); }
             else
-            {return Program.PACK.noShuffle(); }
+            { return Program.PACK.noShuffle(); }
         }
 
         public static Card deal()
@@ -54,31 +51,31 @@ namespace CMP1903M_A01_2223
                     Program.PACK.cards.RemoveAt(packSize - i);
                 }
                 return tempCards;
-            } 
+            }
         }
 
         public bool riffleShuffle()
         {
             var packSize = cards.Count - 1;
-            if(packSize % 2 != 0 && packSize >= 2)
+            if (packSize % 2 != 0 && packSize >= 2)
             {
                 return false;
             }
             var leftPack = cards.GetRange(0, (packSize / 2));
-            var rightPack = cards.GetRange((packSize/2), packSize);
+            var rightPack = cards.GetRange((packSize / 2), packSize);
             var newPack = new List<Card>();
-            for(var i = 0; i < (packSize / 2); i++)
+            for (var i = 0; i < (packSize / 2); i++)
             {
                 newPack.Add(leftPack[i]);
                 newPack.Add(rightPack[i]);
             }
             cards = newPack;
-            return true;             
+            return true;
         }
 
         public bool noShuffle()
-        { 
-            return false; 
+        {
+            return false;
         }
 
         public bool fisherShatesShuffle()
