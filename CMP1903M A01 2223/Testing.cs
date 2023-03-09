@@ -49,7 +49,9 @@ namespace CMP1903M_A01_2223
                 }
                 catch (Exception e) { Console.WriteLine(e.Message); }
             }
+
             List<Card> cards = Pack.dealCard(amount);
+
             for (int i = 0; i < amount; i++) //loops through the total amount of chosen cards
             {
                 strValue = cards[i].Value.ToString();

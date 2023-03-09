@@ -8,7 +8,12 @@ namespace CMP1903M_A01_2223
         public List<Card> cards = new List<Card>(); //creates a list to add all the cards to
         public Pack()
         {
+            this.reset();
+        }
 
+        public void reset()
+        {
+            cards.Clear();
             for (int Value = 1; Value <= 13; Value++) //loops through the amount of values in a deck of cards
             {
                 for (int Suit = 1; Suit <= 4; Suit++) //loops through the amount of suits in a deck of cards
@@ -17,7 +22,6 @@ namespace CMP1903M_A01_2223
                 }
             }
         }
-
         //function to run whichever shuffle type was selected by the user
         public static bool shuffleCardPack(int typeOfShuffle)
         {
