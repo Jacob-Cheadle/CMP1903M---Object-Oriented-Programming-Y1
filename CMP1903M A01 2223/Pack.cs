@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CMP1903M_A01_2223
@@ -74,12 +75,14 @@ namespace CMP1903M_A01_2223
                 newPack.Add(rightPack[i]);
             }
             cards = newPack; //sets the main deck as the new shuffled deck
+            Console.WriteLine("Riffle Shuffle Complete");
             return true; //confirms the successful shuffle
         }
 
         //Function that returns a false value as the cards are not shuffled
         public bool noShuffle() //doesn't shuffle the cards
         {
+            Console.WriteLine("No-Shuffle Shuffle Complete");
             return false;
         }
 
@@ -95,6 +98,7 @@ namespace CMP1903M_A01_2223
                 cards[randIndex] = cards[index]; //places the card somewhere else in the deck
                 cards[index] = tempVar; //places the card somewehere else in the deck
             }
+            Console.WriteLine("Fisher-Yates Shuffle Complete");
             return true; //confirms the shuffle has completed
         }
 

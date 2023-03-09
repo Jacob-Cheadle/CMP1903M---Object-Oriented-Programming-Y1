@@ -9,6 +9,6 @@
             this.Suit = Suit;
             this.Value = Value;
         }
-        
+
     }
 }

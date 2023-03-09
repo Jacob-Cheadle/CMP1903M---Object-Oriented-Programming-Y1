@@ -8,57 +8,54 @@ namespace CMP1903M_A01_2223
     {
         public Testing()
         {
-            int amount; //declares 
+            int amount; //declares all the variables used in the testing
+            string strValue;
+            string strSuit;
+            Card card_dealt;
+            List<Card> cards;
+            int i = 1;
+            int runCount = 1;
 
-            var shuffle1 = Pack.shuffleCardPack(1);
-            var shuffle2 = Pack.shuffleCardPack(2);
-            var shuffle3 = Pack.shuffleCardPack(3); //assigns all the shuffle outputs to variables to reduce logic
-
-            if (shuffle1)
+            while (runCount < 4) //runs through each iteration of the shuffle method and deals cards each time from a freshly reset deck
             {
-                Console.WriteLine("Fisher-Yates Shuffle Complete");
-            }
+                Program.PACK.reset();
+                Console.WriteLine();
+                Console.WriteLine("------------------------------------------");
+                Console.WriteLine();
+                Pack.shuffleCardPack(runCount);
+                runCount += 1;
 
-            if (shuffle2)
-            {
-                Console.WriteLine("Riffle Shuffle Complete");
-            }
-
-            if (!shuffle3)
-            {
-                Console.WriteLine("No-Shuffle Shuffle Complete");
-            }// confirms if all the shuffles have successfully ran
-
-            Console.WriteLine();
-            Card card_dealt = Pack.deal(); //takes a dealt card
-            string strValue = card_dealt.Value.ToString();
-            string strSuit = card_dealt.Suit.ToString();
-            strValue = valueConverter("Value", strValue);
-            strSuit = valueConverter("Suit", strSuit);
-            Console.WriteLine($"{strValue} of {strSuit}"); //outputs the cards in a good understandable format
-            Console.WriteLine();
-
-            while (true)
-            {
-                try
-                {
-                    Console.WriteLine("How Many Cards Would You Like To Deal ");
-                    amount = int.Parse(Console.ReadLine()); //ensures the value given is a number that can be taken
-                    if (amount > 0 && amount <= Program.PACK.cards.Count) { break; } //checks the input is a valid number
-                    else { Console.WriteLine("Invalid Number"); }
-                }
-                catch (Exception e) { Console.WriteLine(e.Message); }
-            }
-
-            List<Card> cards = Pack.dealCard(amount);
-
-            for (int i = 0; i < amount; i++) //loops through the total amount of chosen cards
-            {
-                strValue = cards[i].Value.ToString();
-                strSuit = cards[i].Suit.ToString(); //reduces logic by assigning the values and suits from the card class to variables
+                Console.WriteLine();
+                card_dealt = Pack.deal(); //takes a dealt card
+                strValue = card_dealt.Value.ToString();
+                strSuit = card_dealt.Suit.ToString();
                 strValue = valueConverter("Value", strValue);
                 strSuit = valueConverter("Suit", strSuit);
-                Console.WriteLine($"{strValue} of {strSuit}"); //prints all of the cards in a better format
+                Console.WriteLine($"{strValue} of {strSuit}"); //outputs the cards in a good understandable format
+                Console.WriteLine();
+
+                while (true)
+                {
+                    try
+                    {
+                        Console.WriteLine("How Many Cards Would You Like To Deal ");
+                        amount = int.Parse(Console.ReadLine()); //ensures the value given is a number that can be taken
+                        if (amount > 0 && amount <= Program.PACK.cards.Count) { break; } //checks the input is a valid number
+                        else { Console.WriteLine("Invalid Number"); }
+                    }
+                    catch (Exception e) { Console.WriteLine(e.Message); }
+                }
+
+                cards = Pack.dealCard(amount);
+
+                for (i = 0; i < amount; i++) //loops through the total amount of chosen cards
+                {
+                    strValue = cards[i].Value.ToString();
+                    strSuit = cards[i].Suit.ToString(); //reduces logic by assigning the values and suits from the card class to variables
+                    strValue = valueConverter("Value", strValue);
+                    strSuit = valueConverter("Suit", strSuit);
+                    Console.WriteLine($"{strValue} of {strSuit}"); //prints all of the cards in a better format
+                }
             }
         }
 
@@ -82,7 +79,6 @@ namespace CMP1903M_A01_2223
                         strSuit = "Hearts";
                         break;
                     default:
-                        strSuit = strSuit;
                         break;
                 }
                 return strSuit;
