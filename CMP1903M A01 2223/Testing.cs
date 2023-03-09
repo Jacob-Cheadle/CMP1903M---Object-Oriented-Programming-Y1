@@ -46,7 +46,7 @@ namespace CMP1903M_A01_2223
                     if (amount > 0 && amount <= Program.PACK.cards.Count) { break; } //checks the input is a valid number
                     else { Console.WriteLine("Invalid Number"); }
                 }
-                catch { Console.WriteLine("Invalid Number"); }
+                catch (Exception e) { Console.WriteLine(e.Message); }
             }
             List<Card> cards = Pack.dealCard(amount);
             for (int i = 0; i < amount; i++) //loops through the total amount of chosen cards
