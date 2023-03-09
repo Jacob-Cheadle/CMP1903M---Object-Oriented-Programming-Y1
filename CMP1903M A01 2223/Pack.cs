@@ -13,10 +13,7 @@ namespace CMP1903M_A01_2223
             {
                 for (int Suit = 1; Suit <= 4; Suit++) //loops through the amount of suits in a deck of cards
                 {
-                    Card card = new Card(); //creates a new card
-                    card.Value = Value; //sets the value to the card
-                    card.Suit = Suit; //sets the suit to the card
-                    cards.Add(card); //adds the card to the deck
+                    cards.Add(new Card(Suit, Value)); //adds each individual card
                 }
             }
         }
