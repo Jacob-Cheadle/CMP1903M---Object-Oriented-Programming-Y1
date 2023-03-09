@@ -21,7 +21,8 @@ namespace CMP1903M_A01_2223
             }
         }
 
-        public static bool shuffleCardPack(int typeOfShuffle) //runs each shuffle depending on which the user has selected
+        //function to run whichever shuffle type was selected by the user
+        public static bool shuffleCardPack(int typeOfShuffle)
         {
             if (typeOfShuffle == 1)
             { return Program.PACK.fisherShatesShuffle(); } //runs the Fisher-Yates shuffle
@@ -31,7 +32,8 @@ namespace CMP1903M_A01_2223
             { return Program.PACK.noShuffle(); } //runs the no shuffle
         }
 
-        public static Card deal() //deals a single card
+        //function to deal a single card from the set pack
+        public static Card deal()
         {
             var packSize = Program.PACK.cards.Count - 1; //sets a pack size to reduce logic
             Card deal_card = Program.PACK.cards[packSize]; //copies(draws) a card from the deck
@@ -39,7 +41,8 @@ namespace CMP1903M_A01_2223
             return deal_card; //returns the card
         }
 
-        public static List<Card> dealCard(int amount) //deals a set number of cards
+        //function to deal multiple cards from the set pack up to a limit of how many cards there are in the pack
+        public static List<Card> dealCard(int amount)
         {
             List<Card> tempCards = new List<Card>(); //declares a list to add the drawn cards to
             var packSize = Program.PACK.cards.Count - 1; //presets the pack size to reduce logic
@@ -53,7 +56,8 @@ namespace CMP1903M_A01_2223
             }
         }
 
-        public bool riffleShuffle() //riffle shuffle function for the deck
+        //function to shuffle the cards using the riffle shuffle method where the cards are split in two and then shuffled alternatively back together
+        public bool riffleShuffle()
         {
             var packSize = cards.Count; //presets packsize to reduce logic
             if (packSize % 2 != 0 && packSize <= 2) //ensures that the cards can be riffle shuffled equally
@@ -72,12 +76,14 @@ namespace CMP1903M_A01_2223
             return true; //confirms the successful shuffle
         }
 
+        //Function that returns a false value as the cards are not shuffled
         public bool noShuffle() //doesn't shuffle the cards
         {
             return false;
         }
 
-        public bool fisherShatesShuffle() //shuffles the cards using the Fisher-Yates method
+        //Function that shuffles the deck using the Fisher-Yates method where a random card is selected and placed in a rando location in the deck
+        public bool fisherShatesShuffle()
         {
             var packSize = cards.Count; //presets packsize to reduce logic
             foreach (Card card in cards.ToList()) //runs through each card in the deck
