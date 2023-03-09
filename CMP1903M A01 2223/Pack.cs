@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace CMP1903M_A01_2223
@@ -7,10 +6,9 @@ namespace CMP1903M_A01_2223
     class Pack
     {
         public List<Card> cards = new List<Card>(); //creates a list to add all the cards to
-        int cardCount;
-        public Pack() 
+        public Pack()
         {
-            
+
             for (int Value = 1; Value <= 13; Value++) //loops through the amount of values in a deck of cards
             {
                 for (int Suit = 1; Suit <= 4; Suit++) //loops through the amount of suits in a deck of cards
@@ -35,7 +33,7 @@ namespace CMP1903M_A01_2223
 
         public static Card deal() //deals a single card
         {
-            var packSize = Program.PACK.cards.Count-1; //sets a pack size to reduce logic
+            var packSize = Program.PACK.cards.Count - 1; //sets a pack size to reduce logic
             Card deal_card = Program.PACK.cards[packSize]; //copies(draws) a card from the deck
             Program.PACK.cards.RemoveAt(packSize); //removes the drawn card from the original deck
             return deal_card; //returns the card
@@ -44,7 +42,7 @@ namespace CMP1903M_A01_2223
         public static List<Card> dealCard(int amount) //deals a set number of cards
         {
             List<Card> tempCards = new List<Card>(); //declares a list to add the drawn cards to
-            var packSize = Program.PACK.cards.Count-1; //presets the pack size to reduce logic
+            var packSize = Program.PACK.cards.Count - 1; //presets the pack size to reduce logic
             {
                 for (int i = 0; i < amount; i++) //loops through the set amount of cards
                 {
