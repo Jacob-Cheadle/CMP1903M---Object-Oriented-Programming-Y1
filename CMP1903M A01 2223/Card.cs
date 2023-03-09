@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CMP1903M_A01_2223
+﻿namespace CMP1903M_A01_2223
 {
     class Card
     {
-        //Base for the Card class.
-        //Value: numbers 1 - 13
-        //Suit: numbers 1 - 4
-        //The 'set' methods for these properties could have some validation
+        public int Suit { get; set; } //Card pnly has 2 variables, Value and Suit
         public int Value { get; set; }
-        public int Suit { get; set; }
+        public Card(int Suit, int Value) //constructor to set Suit and Value
+        {
+            this.Suit = Suit;
+            this.Value = Value;
+        }
+
     }
 }
